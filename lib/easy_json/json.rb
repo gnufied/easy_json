@@ -7,6 +7,7 @@ module EasyJson
     included do
       iattr_accessor :json_properties
       iattr_accessor :resource_name
+      attr_accessor :data_record
       json_properties(JsonProperties.new())
     end
 
@@ -18,8 +19,17 @@ module EasyJson
 
     module InstanceMethods
       def to_json(options = {})
-        p json_properties.options
+        json_data = JsonData.new(data_record)
+
+        json_properties.each do |key,property_options|
+          json_data.get_value(key,property_options)
+        end
+      end
+
+      def initialize(data_record)
+        @data_record = data_record
       end
     end
+
   end
 end

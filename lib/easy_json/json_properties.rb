@@ -7,10 +7,13 @@ module EasyJson
 
     def add_properties(*args)
       property_options = args.extract_options!
-      keys = Array.wrap(args.shift)
-      keys.each do |key|
+      args.each do |key|
         @options[key] = property_options
       end
+    end
+
+    def each
+      options.each {|k,v| yield k,v }
     end
     
   end
