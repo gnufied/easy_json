@@ -17,6 +17,9 @@ module EasyJson
     end
 
     module InstanceMethods
+      def to_json(options = {})
+        p json_properties.options
+      end
     end
   end
 end

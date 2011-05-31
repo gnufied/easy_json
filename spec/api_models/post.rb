@@ -4,8 +4,8 @@ module Api
     json_property :id
     json_property :title
     json_property :content
-    json_property :user, :as => SimpleUser
-    json_property :posts, :as => Asset
+    json_property :user, :class => SimpleUser
+    json_property :assets, :as => Array
   end
 end
 
