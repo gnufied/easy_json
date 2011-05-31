@@ -1,7 +1,7 @@
 module Api
   class Asset
-    include Representable::JSON
-    representable_property :id
-    representable_property :url
+    include EasyJson::JSON
+    json_property :id
+    json_property :url
   end
 end

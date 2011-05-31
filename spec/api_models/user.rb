@@ -1,15 +1,16 @@
 module Api
   class User
-    include Representable::JSON
-    representable_property :fullname
-    representable_property :email
+    include EasyJson::JSON
+    json_property :fullname
+    json_property :email
   end
 end
 
 module Api
   class SimpleUser
-    include Representable::JSON
-    self.representation_name = "user"
-    representable_property :fullname
+    include EasyJson::JSON
+    resource_name "user"
+    json_property :fullname
   end
 end
+

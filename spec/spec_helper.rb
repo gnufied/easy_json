@@ -4,17 +4,18 @@ Bundler.setup(:default, :development)
 
 require "easy_json"
 require "active_record"
+$:.unshift(File.dirname(__FILE__))
 
-require_relative "models/user"
-require_relative "models/post"
-require_relative "models/asset"
+require "models/user"
+require "models/post"
+require "models/asset"
 
-require_relative "api_models/user"
-require_relative "api_models/post"
-require_relative "api_models/asset"
+require "api_models/user"
+require "api_models/post"
+require "api_models/asset"
 
-Dir["support/**/*.rb"].each {|f| require f }
+require "support/load_model"
 
-Rspec.configure do |config|
+RSpec.configure do |config|
   config.include LoadModel
 end

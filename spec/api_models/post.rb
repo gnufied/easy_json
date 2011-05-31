@@ -1,11 +1,11 @@
 module Api
   class Post
-    include Representable::JSON
-    representable_property :id
-    representable_property :title
-    representable_property :content
-    representable_property :user, :as => SimpleUser
-    representable_property :posts, :as => Asset
+    include EasyJson::JSON
+    json_property :id
+    json_property :title
+    json_property :content
+    json_property :user, :as => SimpleUser
+    json_property :posts, :as => Asset
   end
 end
 

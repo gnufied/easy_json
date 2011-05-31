@@ -1,8 +1,9 @@
 module Api
   class Lesson
-    representable_property :id
-    representable_property :content, :from => :lesson_content
-    representable_property :title, :from => :lesson_content
+    include EasyJson::JSON
+    json_property :id
+    json_property :content, :from => :lesson_content
+    json_property :title, :from => :lesson_content
   end
 end
 
